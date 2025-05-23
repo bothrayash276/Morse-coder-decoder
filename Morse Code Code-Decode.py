@@ -33,20 +33,23 @@ morseDict = {
 
 def code(userInput):
     userInput = userInput.lower()
+    a=""
     for i in userInput:
-        print(morseDict[i], end=" ")
+        a = a + morseDict[i] +" "
+    return a
 
 
 
 def decode(userInput):
     userList = userInput.split()
+    df = ""
     for i in range(0, len(userList)):
         for j in morseDict:
             if(morseDict[j]==userList[i]):
-                print(j, end=" ")
+                df =df + j + " "
             else:
                 continue
-
+    return df
 
 def userChoice():
     
@@ -54,10 +57,10 @@ def userChoice():
     userNeed = int(input("How do you want to proceed: "))
     if(userNeed==1):
         user1 = input("Enter your Words: ")
-        print(code(user1))
+        return code(user1)
     elif(userNeed==2):
         user2 = input("Enter your Morse Code: ")
-        print(decode(user2))
+        return decode(user2)
     else:
         return "You failed to enter '1' or '2'"
     
